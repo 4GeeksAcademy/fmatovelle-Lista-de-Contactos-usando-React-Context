@@ -20,7 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  }
 		},
 		createAgenda: () => {
-			fetch('https://playground.4geeks.com/contact/agendas/fmatovelle', {
+			fetch('/agendas/fmatovelle', {
 				method: 'POST',
 				headers: { 
 					'Content-Type': 'application/json' 
@@ -65,7 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
   
 		updateContact: async (contact) => {
-		  const PATH = `https://playground.4geeks.com/contact/agendas/fmatovelle/contacts/${contact.id}`;
+		  const PATH = `/agendas/fmatovelle/contacts/${contact.id}`;
 		  try {
 			const response = await fetch(`${BACKEND_URL}${PATH}`, {
 			  method: "PUT",
@@ -85,7 +85,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
   
 		deleteContact: async (contactId) => {
-		  const PATH = `https://playground.4geeks.com/contact/agendas/fmatovelle/contacts/${contactId}`;
+		  const PATH = `/agendas/fmatovelle/contacts/${contactId}`;
 		  try {
 			const response = await fetch(`${BACKEND_URL}${PATH}`, {
 			  method: "DELETE",
