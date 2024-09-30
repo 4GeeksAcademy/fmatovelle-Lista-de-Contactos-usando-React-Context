@@ -20,7 +20,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  }
 		},
 		createAgenda: () => {
-			fetch('/agendas/fmatovelle', {
+			const PATH = "/agendas/fmatovelle";
+			fetch(`${BACKEND_URL}${PATH}`, {
 				method: 'POST',
 				headers: { 
 					'Content-Type': 'application/json' 
@@ -35,14 +36,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error("Error creating agenda: ", data.detail);
 				} else {
 					console.log("Agenda created successfully: ", data);
-					// Load contacts if the agenda was created successfully
-					getActions().loadContacts();
+					getActions().getContactList(); 
 				}
 			})
 			.catch(error => {
 				console.error("Error:", error);
 			});
 		},
+		
 		
 		createNewContact: async (contact) => {
 		  const PATH = "/agendas/fmatovelle/contacts";
